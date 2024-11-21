@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <p>Enter Weight(in Kg):<input type="number" id="weight1" placeholder="Enter Weight"></p>
+    <p>Enter Height(in m):<input type="number" id="height1" placeholder="Enter Height"></p>
+    <button onclick="bmi()">Check BMI</button>
+    <div id="output1"></div>
+    <script>
+        function bmi(){
+    let Weight = Number(document.getElementById('weight1').value);
+    let Height = Number (document.getElementById('height1').value);
+    let BMI = Weight / (Height * Height);
+     BMI = BMI.toFixed(2);
+    if (!Weight || !Height) {
+        alert('This Field is required');
+        return;
+    }
+    else if (BMI< 18.5) {
+        document.getElementById('output1').innerHTML = `Your BMI is ${BMI} (Underweight).`
+    }
+    else if(BMI >=18.5 && BMI<= 24.9){
+        document.getElementById('output1').innerHTML = `Your BMI is ${BMI} (Normal).`
+    }
+    else if(BMI >=25 && BMI<= 29.9){
+        document.getElementById('output1').innerHTML = `Your BMI is ${BMI} (Overweight).`
+    }
+    
+    else {
+        document.getElementById('output1').innerHTML = `Your BMI is ${BMI} (Obese).`
+    }
+ }
+
+    </script>
+</body>
+</html>
